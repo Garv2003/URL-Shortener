@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1 class="title">
+        URl Shortener
+    </h1>
+    <div class="mainbody">
+        <div class="container">
+            <div class="header">
+                <div class="header_title">
+                    Paste the URL to be shortened
+                </div>
+                <form action="/addurl" method="POST" class="form_url" id="formurl">
+                    <input type="text" class="input_form" placeholder="Enter the Link here" name="FullUrl">
+                    <button type="submit">Shorten URL</button>
+                </form>
+                <div>
+                    ShortURL is a free tool to shorten URLs and generate short links
+                </div>
+                <div>
+                    URL shortener allows to create a shortened link making it easy to share
+                </div>
+            </div>
+        </div>
+        <div class="conatiner1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Full Url</th>
+                        <th>Short Url Id</th>
+                        <th>Clicks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tbody class="totalcontract">
+                    {{#each url }}
+                    <tr>
+                        <td>{{this.FullUrl}}</td>
+                        <td>{{this.ShortUrl}}</td>
+                        <td>{{this.Clicks}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

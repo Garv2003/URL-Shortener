@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <div class="title">Url Shortener</div>
+    <div class="container1">
+        <div>
+            <div>
+                <a href="/"></a>
+                <input type="text" id="copyinput"value=http://localhost:1234/{{url.ShortUrl}}>
+                <button id="btn">Copy URL</button>
+            </div>
+            <div>
+                <span>{{url.FullUrl}}</span>
+            </div>
+            <div>
+                <div>Total of clicks of Your shortened URL</div>
+                {{url.Clicks}}
+            </div>
+            <div>
+                <a href="/">Shorten another URL</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        © 2023 Url Shortener - Tool to shorten a long link
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
