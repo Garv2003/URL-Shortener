@@ -16,22 +16,25 @@
     <div class="mainbody">
         <div class="container">
             <div class="header">
-                <div class="header_title">
+                <h3 class="header_title">
                     Paste the URL to be shortened
-                </div>
+                </h3>
                 <form action="/addurl" method="POST" class="form_url" id="formurl">
-                    <input type="text" class="input_form" placeholder="Enter the Link here" name="FullUrl">
-                    <button type="submit">Shorten URL</button>
+                    <input class="forminput" type="text" class="input_form" placeholder="Enter the Link here"
+                        name="FullUrl">
+                    <button class="formbtn" type="submit">Shorten URL</button>
                 </form>
-                <div>
-                    ShortURL is a free tool to shorten URLs and generate short links
-                </div>
-                <div>
-                    URL shortener allows to create a shortened link making it easy to share
+                <div class="body">
+                    <div class="header_body">
+                        ShortURL is a free tool to shorten URLs and generate short links
+                    </div>
+                    <div class="header_body">
+                        URL shortener allows to create a shortened link making it easy to share
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="conatiner1">
+        <div class="container1">
             <table>
                 <thead>
                     <tr>
@@ -45,7 +48,7 @@
                     {{#each url }}
                     <tr>
                         <td>{{this.FullUrl}}</td>
-                        <td>{{this.ShortUrl}}</td>
+                        <td><a  class="cl" href="{{this.ShortUrl}}">{{this.ShortUrl}}</a></td>
                         <td>{{this.Clicks}}</td>
                     </tr>
                     {{/each}}
@@ -54,7 +57,18 @@
         </div>
     </div>
     <div class="footer">
-        
+        <div class="footertop">
+            © 2023 URL SHORTENER - Tool to shorten a long link
+        </div>
+        <div class="footerbottom">
+            <div>ShortURL</div>
+            <div>URL Click Counter</div>
+            <div>Unshorten URL </div>
+            <div>Report Malicious URL</div>
+            <div>Terms of Service </div>
+            <div>Privacy </div>
+            <div>Contact</div>
+        </div>
     </div>
     <script src="../js/script.js"></script>
 </body>

@@ -9,28 +9,42 @@
 </head>
 
 <body>
-    <div class="title">Url Shortener</div>
-    <div class="container1">
-        <div>
-            <div>
+    <h1 class="title">
+        URl Shortener
+    </h1>
+    <div class="mainbody1">
+        <div class="container2">
+            <div class="form_url">
                 <a href="/"></a>
-                <input type="text" id="copyinput"value=http://localhost:1234/{{url.ShortUrl}}>
-                <button id="btn">Copy URL</button>
+                <input type="text" class="forminput" id="copyinput" value=http://localhost:1234/{{url.ShortUrl}}>
+                <button class="formbtn" id="btn">Copy URL</button>
             </div>
-            <div>
-                <span>{{url.FullUrl}}</span>
+            <div class="fullurl"> 
+                <div>Full URL</div>
+                <a href="{{url.FullUrl}}">{{url.FullUrl}}</a>
             </div>
-            <div>
+            <div class="clicks">
                 <div>Total of clicks of Your shortened URL</div>
-                {{url.Clicks}}
+                <span>{{url.Clicks}}</span>
             </div>
-            <div>
+            <button class="returnbtn">
                 <a href="/">Shorten another URL</a>
-            </div>
+            </button>
         </div>
     </div>
-    <div>
-        © 2023 Url Shortener - Tool to shorten a long link
+    <div class="footer1">
+        <div class="footertop">
+            © 2023 URL SHORTENER - Tool to shorten a long link
+        </div>
+        <div class="footerbottom">
+            <div>ShortURL</div>
+            <div>URL Click Counter</div>
+            <div>Unshorten URL </div>
+            <div>Report Malicious URL</div>
+            <div>Terms of Service </div>
+            <div>Privacy </div>
+            <div>Contact</div>
+        </div>
     </div>
     <script src="../js/script.js"></script>
 </body>
