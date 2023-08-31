@@ -34,28 +34,25 @@
                 </div>
             </div>
         </div>
-        <div class="container1">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Full Url</th>
-                        <th>Short Url Id</th>
-                        <th>Clicks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tbody class="totalcontract">
-                    {{#each url }}
-                    <tr>
-                        <td>{{this.FullUrl}}</td>
-                        <td><a  class="cl" href="{{this.ShortUrl}}">{{this.ShortUrl}}</a></td>
-                        <td>{{this.Clicks}}</td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
     </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Full Url</th>
+                <th>Short Url Id</th>
+                <th>Clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each url }}
+            <tr class="over">
+                <td class="overtext">{{this.FullUrl}}</td>
+                <td><a class="cl" href="{{this.ShortUrl}}">{{this.ShortUrl}}</a></td>
+                <td>{{this.Clicks}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
     <div class="footer">
         <div class="footertop">
             © 2023 URL SHORTENER - Tool to shorten a long link
