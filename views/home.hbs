@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="../styles/style.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
@@ -34,7 +35,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>l
     <table>
         <thead>
             <tr>
@@ -45,10 +46,20 @@
         </thead>
         <tbody>
             {{#each url }}
-            <tr class="over">
-                <td class="overtext">{{this.FullUrl}}</td>
-                <td><a class="cl" href="{{this.ShortUrl}}">{{this.ShortUrl}}</a></td>
-                <td>{{this.Clicks}}</td>
+            <tr>
+                <td class="ellipsis first">
+                    <span>{{this.FullUrl}}</span>
+                </td>
+                <td class="ellipsis">
+                    <a class="cl" href="{{this.ShortUrl}}">
+                        {{this.ShortUrl}}
+                    </a>
+                </td>
+                <td class="ellipsis">
+                    <span>
+                        {{this.Clicks}}
+                    </span>
+                </td>
             </tr>
             {{/each}}
         </tbody>
