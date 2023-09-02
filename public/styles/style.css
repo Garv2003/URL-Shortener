@@ -14,7 +14,7 @@
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 .mainbody {
-  width: 60%;
+  width: 50%;
   margin: auto;
 }
 .container {
@@ -64,8 +64,7 @@
 }
 table {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  padding: 40px;
-  max-width: 60%;
+  max-width: 50%;
   margin: auto;
   box-sizing: border-box;
   margin-top: 20px;
@@ -76,14 +75,14 @@ th,
 td {
   border: 1px solid black;
   text-align: center;
-  padding: 5px;
-  font-size: 1.5vw;
+  padding: 10px;
+  font-size: 1.4vw;
 }
 td{
   padding: 20px;
 }
 .first{
-  width: 100%;
+  width: 90%;
 }
 .ellipsis{
   position: relative;
@@ -112,7 +111,7 @@ table tr:hover {
 table th{
   background-color: #006cff;
   color: white;
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
 table td :nth-child(1){
   text-overflow: ellipsis;
@@ -129,7 +128,7 @@ table td :nth-child(1){
   border-top: 7px solid #006cff;
   flex-direction: column;
   margin-top: 40px;
-  font-size: 2vw;
+  font-size: 1.5vw;
   background-color: #333333;
   color: #eeee;
   justify-content: space-around;
