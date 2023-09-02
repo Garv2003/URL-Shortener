@@ -3,7 +3,6 @@
   padding: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
 }
 .title {
   width: 100%;
@@ -19,7 +18,6 @@
 }
 .container {
   padding: 40px;
-  height: 200px;
   margin-top: 40px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
@@ -67,6 +65,7 @@ table {
   max-width: 50%;
   margin: auto;
   box-sizing: border-box;
+  position: relative;
   margin-top: 20px;
   border-collapse: collapse;
   border: 1px solid black;
@@ -75,20 +74,17 @@ th,
 td {
   border: 1px solid black;
   text-align: center;
-  padding: 10px;
+  padding: 0px 10px 20px 10px;
   font-size: 1.4vw;
 }
-td{
-  padding: 20px;
-}
-.first{
+.first {
   width: 90%;
 }
-.ellipsis{
+.ellipsis {
   position: relative;
 }
 .ellipsis:before {
-  content: ' ';
+  content: " ";
   visibility: hidden;
 }
 .ellipsis span {
@@ -108,31 +104,18 @@ table tr:nth-child(odd) {
 table tr:hover {
   background-color: #ddd;
 }
-table th{
+table th {
   background-color: #006cff;
   color: white;
   font-size: 1.5vw;
 }
-table td :nth-child(1){
+table td :nth-child(1) {
   text-overflow: ellipsis;
   overflow-x: hidden;
 }
 .cl {
   color: #006cff;
   text-decoration: none;
-}
-.footer {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  border-top: 7px solid #006cff;
-  flex-direction: column;
-  margin-top: 40px;
-  font-size: 1.5vw;
-  background-color: #333333;
-  color: #eeee;
-  justify-content: space-around;
-  align-items: center;
 }
 .footerbottom {
   display: flex;
@@ -194,6 +177,5 @@ table td :nth-child(1){
   color: #eeee;
   justify-content: space-around;
   align-items: center;
-  position: fixed;
-  bottom: 0;
+  font-size: 1.4vw;
 }

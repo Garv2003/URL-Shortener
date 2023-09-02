@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <h1 class="title">
-        URl Shortener
-    </h1>
-    <div class="mainbody">
-        <div class="container">
-            <div class="header">
+    <div class="post">
+        <h1 class="title">
+            URl Shortener
+        </h1>
+        <div class="mainbody">
+            <div class="container">
                 <h3 class="header_title">
                     Paste the URL to be shortened
                 </h3>
@@ -34,37 +34,37 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>l
-    <table>
-        <thead>
-            <tr>
-                <th>Full Url</th>
-                <th>Short Url Id</th>
-                <th>Clicks</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each url }}
-            <tr>
-                <td class="ellipsis first">
-                    <span>{{this.FullUrl}}</span>
-                </td>
-                <td class="ellipsis">
-                    <a class="cl" href="{{this.ShortUrl}}">
-                        {{this.ShortUrl}}
-                    </a>
-                </td>
-                <td class="ellipsis">
-                    <span>
-                        {{this.Clicks}}
-                    </span>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-    <div class="footer">
+        </div>l
+        <table>
+            <thead>
+                <tr>
+                    <th>Full Url</th>
+                    <th>Short Url Id</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each url }}
+                <tr>
+                    <td class="ellipsis first">
+                        <span>{{this.FullUrl}}</span>
+                    </td>
+                    <td class="ellipsis">
+                        <a class="cl" href="{{this.ShortUrl}}">
+                            {{this.ShortUrl}}
+                        </a>
+                    </td>
+                    <td class="ellipsis">
+                        <span>
+                            {{this.Clicks}}
+                        </span>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="footer1">
         <div class="footertop">
             © 2023 URL SHORTENER - Tool to shorten a long link
         </div>
@@ -78,7 +78,6 @@
             <div>Contact</div>
         </div>
     </div>
-    <script src="../js/script.js"></script>
 </body>
 
 </html>
