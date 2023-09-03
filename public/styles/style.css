@@ -180,16 +180,15 @@ table td :nth-child(1) {
   bottom: 0;
 }
 .qr-code{
-  width: 200px;
-  height: 200px;
-  margin: 20px auto;
+  width: 40%;
+  margin:auto;
   display: block;
 }
 .hidden{
   display: none;
 }
 .cont{
-  width: 50%;
+  width: 60%;
   margin: auto;
 	background-color: white;
 	box-shadow: 8px 8px 20px rgb(128, 128, 128);
