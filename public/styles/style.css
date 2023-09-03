@@ -55,9 +55,6 @@
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   font-size: 1.4vw;
 }
-.body {
-  margin-top: 10px;
-}
 .header_body {
   text-align: center;
   font-size: 1.5vw;
@@ -132,24 +129,20 @@ table td :nth-child(1) {
   margin: auto;
 }
 .container2 {
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  width: 90%;
   padding: 40px;
-  margin-top: 100px;
   align-items: center;
+}
+.box{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 .fullurl {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  flex-direction: column;
   box-sizing: border-box;
   margin-top: 20px;
-}
-.fullurl > a {
-  color: #006cff;
-  text-decoration: none;
-  box-sizing: border-box;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 .clicks {
   display: flex;
@@ -160,6 +153,7 @@ table td :nth-child(1) {
   color: #006cff;
 }
 .returnbtn {
+  width: 20%;
   background-color: #006cff;
   border: none;
   padding: 10px;
@@ -184,10 +178,58 @@ table td :nth-child(1) {
   font-size: 1.4vw;
   position: relative;
   bottom: 0;
-  left: 0;
+}
+.qr-code{
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  display: block;
+}
+.hidden{
+  display: none;
+}
+.cont{
+  width: 50%;
+  margin: auto;
+	background-color: white;
+	box-shadow: 8px 8px 20px rgb(128, 128, 128);
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.btn {
+	height: 60px;
+	width: 300px;
+	margin:auto;
+  margin-top: 20px ;
+  margin-bottom: 20px;
+	box-shadow: 10px 10px 30px rgb(188, 247, 254);
+	border-radius: 50px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.ml{
+  margin-top: 140px;
+}
+.qrcode,
+.url {
+  height: 60px;
+	width: 150px;
+	font-size: 22px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.slider {
+	height: 60px;
+	width: 150px;
+	border-radius: 50px;
+	background-image: linear-gradient(to right,
+			rgb(110, 211, 255),
+			rgb(91, 173, 255));
 }
 
 
-@media screen  {
-  
-}

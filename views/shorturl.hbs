@@ -5,35 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
-     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="../styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+    </script>
 </head>
 
 <body>
     <h1 class="title">
         URl Shortener
     </h1>
-    <div class="mainbody1">
-        <div class="container2">
+    <div class="cont">
+        <div class="btn">
+            <button class="url slider">URL</button>
+            <button class="qrcode ">QR CODE</button>
+        </div>
+        <div class="container2" id="cont1">
             <div class="form_url">
                 <a href="/"></a>
                 <input type="text" class="forminput" id="copyinput" value=http://localhost:1234/{{url.ShortUrl}}>
                 <button class="formbtn" id="btn">Copy URL</button>
             </div>
-            <div class="fullurl"> 
-                <div>Full URL</div>
-                <a href="{{url.FullUrl}}">{{url.FullUrl}}</a>
+            <div class="box">
+                <div class="fullurl">
+                    <div>Full URL</div>
+                    <div class="ellipsis">
+                        <span>
+                            <a href="{{url.FullUrl}}">
+                                {{url.FullUrl}}
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <div class="clicks">
+                    <div>Total of clicks of Your shortened URL</div>
+                    <span>{{url.Clicks}}</span>
+                </div>
+                <button class="returnbtn">
+                    <a href="/">Shorten another URL</a>
+                </button>
             </div>
-            <div class="clicks">
-                <div>Total of clicks of Your shortened URL</div>
-                <span>{{url.Clicks}}</span>
+        </div>
+
+        <div class="container2 hidden" id="cont2">
+            <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0"
+                class="qr-code img-thumbnail img-responsive" alt="">
+            <div class="box">
+                <div class="fullurl">
+                    <div>Full URL</div>
+                    <div class="ellipsis">
+                        <span>
+                            <a href="{{url.FullUrl}}">
+                                {{url.FullUrl}}
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <div class="clicks">
+                    <div>Total of clicks of Your shortened URL</div>
+                    <span>{{url.Clicks}}</span>
+                </div>
+                <button class="returnbtn">
+                    <a href="/">Shorten another URL</a>
+                </button>
             </div>
-            <button class="returnbtn">
-                <a href="/">Shorten another URL</a>
-            </button>
         </div>
     </div>
-    <div class="footer1">
+    <div class="footer1 ml" id="fot">
         <div class="footertop">
             © 2023 URL SHORTENER - Tool to shorten a long link
         </div>
