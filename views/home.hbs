@@ -6,54 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 
-<body>
-    <div class="post">
-        <h1 class="title">
-            URl Shortener
-        </h1>
-        <div class="mainbody">
-            <div class="container">
-                <h3 class="header_title">
-                    Paste the URL to be shortened
-                </h3>
-                <form action="/addurl" method="POST" class="form_url" id="formurl">
-                    <input class="forminput" type="text" class="input_form" placeholder="Enter the Link here"
-                        name="FullUrl">
-                    <button class="formbtn" type="submit">Shorten URL</button>
-                </form>
-                <div class="body">
-                    <div class="header_body">
-                        ShortURL is a free tool to shorten URLs and generate short links
-                    </div>
-                    <div class="header_body">
-                        URL shortener allows to create a shortened link making it easy to share
-                    </div>
+<body class="bg-dark bg-gradient d-flex flex-column min-vh-100">
+    <h1 class="container-fluid text-center bg-dark text-primary p-3 shadow-lg">
+        URl Shortener
+    </h1>
+    <div class="container">
+        <div class="container text-light text-center shadow-lg p-4 bg-dark mt-4">
+            <h3 class="fs-1">
+                Paste the URL to be shortened
+            </h3>
+            <form action="/addurl" method="POST" class="form_url" id="formurl">
+                <input class="forminput col-6" type="text" class="input_form" placeholder="Enter the Link here"
+                    name="FullUrl">
+                <button class="formbtn col-4" type="submit">Shorten URL</button>
+            </form>
+            <div class="fs-5">
+                <div class="p-2">
+                    ShortURL is a free tool to shorten URLs and generate short links
+                </div>
+                <div class="p-2">
+                    URL shortener allows to create a shortened link making it easy to share
+                </div>
+                <div class="p-2">
+                    and track clicks on your URL in real time
                 </div>
             </div>
         </div>
-        <table>
+        <table class="table table-md table-hover table-dark table-striped table-responsive text-center mt-5 mb-4">
             <thead>
                 <tr>
-                    <th>Full Url</th>
-                    <th>Short Url Id</th>
-                    <th>Clicks</th>
+                    <th scope="col">#</th>
+                    <th scope="col">FULL URL</th>
+                    <th scope="col">SHORT URL</th>
+                    <th scope="col">CLICKS</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table-group-divider">
                 {{#each url }}
                 <tr>
-                    <td class="ellipsis first">
-                        <span>{{this.FullUrl}}</span>
+                    <th scope="row">{{@index}}</th>
+                    <td class="text-truncate" style="max-width: 120px;">
+                        {{this.FullUrl}}
                     </td>
-                    <td class="ellipsis">
-                        <a class="cl" href="{{this.ShortUrl}}">
+                    <td>
+                        <a class="text-primary text-decoration-none" href="{{this.ShortUrl}}">
                             {{this.ShortUrl}}
                         </a>
                     </td>
-                    <td class="ellipsis">
+                    <td>
                         <span>
                             {{this.Clicks}}
                         </span>
@@ -62,20 +66,22 @@
                 {{/each}}
             </tbody>
         </table>
-        <div class="footer1">
-            <div class="footertop">
-                © 2023 URL SHORTENER - Tool to shorten a long link
-            </div>
-            <div class="footerbottom">
-                <div>ShortURL</div>
-                <div>URL Click Counter</div>
-                <div>Unshorten URL </div>
-                <div>Report Malicious URL</div>
-                <div>Terms of Service </div>
-                <div>Privacy </div>
-                <div>Contact</div>
-            </div>
+    </div>
+    <div class="container-fluid text-light text-center border-top border-primary border-5  mt-auto">
+        <div class="fs-3 p-2">
+            © 2023 URL SHORTENER - Tool to shorten a long link
+        </div>
+        <div class="d-flex justify-content-center fs-5 p-4 ">
+            <div class="fw-bolder mx-2 Size">ShortURL</div>
+            <div class="fw-bolder mx-2 Size">URL Click Counter</div>
+            <div class="fw-bolder mx-2 Size">Unshorten URL </div>
+            <div class="fw-bolder mx-2 Size">Report Malicious URL</div>
+            <div class="fw-bolder mx-2 Size">Terms of Service </div>
+            <div class="fw-bolder mx-2 Size">Privacy </div>
+            <div class="fw-bolder mx-2 Size">Contact</div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

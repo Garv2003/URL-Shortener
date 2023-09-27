@@ -3,38 +3,13 @@
   padding: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-.post{
-  position: absolute;
-  top:0;
-}
-.title {
-  width: 100vw;
-  text-align: center;
-  padding: 30px 0px 30px 0px;
-  font-size: 35px;
-  color: #006cff;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-}
-.mainbody {
-  width: 50%;
-  margin: auto;
-}
-.container {
-  padding: 40px;
-  margin-top: 40px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-}
-.header_title {
-  text-align: center;
-  padding: 10px;
+  box-sizing: border-box;
 }
 .form_url {
   display: flex;
-  margin-top: 20px;
+  margin-left: 15%;
 }
 .forminput {
-  width: 70%;
   height: 50px;
   padding: 0px 25px;
   outline: none;
@@ -44,7 +19,6 @@
   border-radius: 25px 0px 0px 25px;
 }
 .formbtn {
-  width: 30%;
   cursor: pointer;
   outline: none;
   border: 0;
@@ -55,75 +29,11 @@
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   font-size: 1.4vw;
 }
-.header_body {
-  text-align: center;
-  font-size: 1.5vw;
-  padding: 5px;
-  font-weight: 600;
-}
 table {
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  max-width: 50%;
-  margin: auto;
-  box-sizing: border-box;
-  position: relative;
-  margin-top: 20px;
-  border-collapse: collapse;
-  border: 1px solid black;
+  width: 50%;
 }
-th,
-td {
-  border: 1px solid black;
-  text-align: center;
-  padding: 0px 10px 20px 10px;
-  font-size: 1.4vw;
-}
-.first {
-  width: 90%;
-}
-.ellipsis {
-  position: relative;
-}
-.ellipsis:before {
-  content: " ";
-  visibility: hidden;
-}
-.ellipsis span {
-  position: absolute;
-  left: 0;
-  right: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-table tr:nth-child(odd) {
-  background-color: #ffffff;
-}
-table tr:hover {
-  background-color: #ddd;
-}
-table th {
-  background-color: #006cff;
-  color: white;
-  font-size: 1.5vw;
-}
-table td :nth-child(1) {
-  text-overflow: ellipsis;
-  overflow-x: hidden;
-}
-.cl {
-  color: #006cff;
-  text-decoration: none;
-}
-.footerbottom {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  gap: 10px;
-}
+
+
 .mainbody1 {
   width: 60%;
   margin: auto;
@@ -133,7 +43,7 @@ table td :nth-child(1) {
   padding: 40px;
   align-items: center;
 }
-.box{
+.box {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -160,75 +70,52 @@ table td :nth-child(1) {
   margin-top: 20px;
   border-radius: 10px;
 }
-.returnbtn > a {
-  color: white;
-  text-decoration: none;
-}
-.footer1 {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  border-top: 7px solid #006cff;
-  flex-direction: column;
-  margin-top: 40px;
-  background-color: #333333;
-  color: #eeee;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 1.4vw;
-  position: relative;
-  bottom: 0;
-}
-.qr-code{
+.qr-code {
   width: 40%;
-  margin:auto;
+  margin: auto;
   display: block;
 }
-.hidden{
+.hidden {
   display: none;
 }
-.cont{
+.cont {
   width: 60%;
   margin: auto;
-	background-color: white;
-	box-shadow: 8px 8px 20px rgb(128, 128, 128);
+  background-color: white;
+  box-shadow: 8px 8px 20px rgb(128, 128, 128);
   margin-top: 20px;
   padding: 10px;
 }
-
 .btn {
-	height: 60px;
-	width: 300px;
-	margin:auto;
-  margin-top: 20px ;
+  height: 60px;
+  width: 300px;
+  margin: auto;
+  margin-top: 20px;
   margin-bottom: 20px;
-	box-shadow: 10px 10px 30px rgb(188, 247, 254);
-	border-radius: 50px;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-}
-.ml{
-  margin-top: 140px;
+  box-shadow: 10px 10px 30px rgb(188, 247, 254);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .qrcode,
 .url {
   height: 60px;
-	width: 150px;
-	font-size: 22px;
-	border: none;
-	outline: none;
-	background-color: transparent;
-	cursor: pointer;
+  width: 150px;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .slider {
-	height: 60px;
-	width: 150px;
-	border-radius: 50px;
-	background-image: linear-gradient(to right,
-			rgb(110, 211, 255),
-			rgb(91, 173, 255));
+  height: 60px;
+  width: 150px;
+  border-radius: 50px;
+  background-image: linear-gradient(
+    to right,
+    rgb(110, 211, 255),
+    rgb(91, 173, 255)
+  );
 }
-
-
