@@ -27,48 +27,13 @@
   font-weight: 600;
   color: white;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  font-size: 1.4vw;
+  font-size: 1.6vw;
 }
 table {
   width: 50%;
 }
-
-
-.mainbody1 {
-  width: 60%;
-  margin: auto;
-}
-.container2 {
-  width: 90%;
-  padding: 40px;
-  align-items: center;
-}
-.box {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-.fullurl {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  margin-top: 20px;
-}
-.clicks {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
 .clicks > span {
   color: #006cff;
-}
-.returnbtn {
-  width: 20%;
-  background-color: #006cff;
-  border: none;
-  padding: 10px;
-  margin-top: 20px;
-  border-radius: 10px;
 }
 .qr-code {
   width: 40%;
@@ -77,26 +42,6 @@ table {
 }
 .hidden {
   display: none;
-}
-.cont {
-  width: 60%;
-  margin: auto;
-  background-color: white;
-  box-shadow: 8px 8px 20px rgb(128, 128, 128);
-  margin-top: 20px;
-  padding: 10px;
-}
-.btn {
-  height: 60px;
-  width: 300px;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  box-shadow: 10px 10px 30px rgb(188, 247, 254);
-  border-radius: 50px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 .qrcode,
 .url {
@@ -108,7 +53,6 @@ table {
   background-color: transparent;
   cursor: pointer;
 }
-
 .slider {
   height: 60px;
   width: 150px;

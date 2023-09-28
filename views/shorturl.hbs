@@ -16,26 +16,23 @@
     <h1 class="container-fluid text-center bg-dark text-primary p-3 shadow-lg">
         URl Shortener
     </h1>
-    <div class="container-sm bg-dark text-light">
-        <div class="btn">
+    <div class="container-sm bg-dark text-light mt-5 mb-5">
+        {{!-- <div class="btn">
             <button class="url slider">URL</button>
             <button class="qrcode ">QR CODE</button>
-        </div>
-        <div id="cont1">
+        </div> --}}
+        <div class="p-5" id="cont1">
             <div class="form_url">
-                <a href="/"></a>
-                <input type="text" class="forminput" id="copyinput" value=http://localhost:1234/{{url.ShortUrl}}>
-                <button class="formbtn" id="btn">Copy URL</button>
+                <input type="text" class="forminput col-6" id="copyinput" value=http://localhost:1234/{{url.ShortUrl}}>
+                <button class="formbtn col-4" id="btn">Copy URL</button>
             </div>
             <div class="box">
                 <div class="fullurl">
                     <div>Full URL</div>
-                    <div class="ellipsis">
-                        <span>
-                            <a href="{{url.FullUrl}}">
-                                {{url.FullUrl}}
-                            </a>
-                        </span>
+                    <div class="text-truncate" style="max-width: 600px;">
+                        <a href="{{url.FullUrl}}" target="_blank">
+                            {{url.FullUrl}}
+                        </a>
                     </div>
                 </div>
                 <div class="clicks">
@@ -73,17 +70,16 @@
         </div>
     </div>
     <div class="container-fluid text-light text-center border-top border-primary border-5  mt-auto">
-        <div class="fs-3 p-2">
+        <div class="fs-4 p-2">
             © 2023 URL SHORTENER - Tool to shorten a long link
         </div>
-        <div class="d-flex justify-content-center fs-5 p-4 ">
-            <div class="fw-bolder mx-2 Size">ShortURL</div>
-            <div class="fw-bolder mx-2 Size">URL Click Counter</div>
-            <div class="fw-bolder mx-2 Size">Unshorten URL </div>
-            <div class="fw-bolder mx-2 Size">Report Malicious URL</div>
-            <div class="fw-bolder mx-2 Size">Terms of Service </div>
-            <div class="fw-bolder mx-2 Size">Privacy </div>
-            <div class="fw-bolder mx-2 Size">Contact</div>
+        <div class="d-flex justify-content-center fs-5 p-4 row">
+            <div class="fw-bolder mx-2 col-md-2">ShortURL</div>
+            <div class="fw-bolder mx-2 col-md-2">URL Click Counter</div>
+            <div class="fw-bolder mx-2 col-md-2">Unshorten URL </div>
+            <div class="fw-bolder mx-2 col-md-2">Terms of Service </div>
+            <div class="fw-bolder mx-2 col-md-2">Privacy </div>
+            <div class="fw-bolder mx-2 col-md-1">Contact</div>
         </div>
     </div>
     <script src="../js/script.js"></script>
