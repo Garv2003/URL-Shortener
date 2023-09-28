@@ -18,6 +18,6 @@ app.use("/", routes);
 
 mongoose.connect(process.env.MONGOOSE_URL).then(() => {
   app.listen(PORT, () => {
-    console.log(`http://localhost:${PORT}`);
+    console.log(PORT);
   });
 });
