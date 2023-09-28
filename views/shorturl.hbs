@@ -17,17 +17,17 @@
         URl Shortener
     </h1>
     <div class="container-sm bg-dark text-light mt-5 mb-5">
-        {{!-- <div class="btn">
-            <button class="url slider">URL</button>
-            <button class="qrcode ">QR CODE</button>
-        </div> --}}
+        <div class="text-center shadow p-4" >
+            <button class="url bg-primary slider text-light">URL</button>
+            <button class="bg-primary qrcode text-light">QR CODE</button>
+        </div>
         <div class="p-5" id="cont1">
             <div class="form_url">
-                <input type="text" class="forminput col-6" id="copyinput" value=http://localhost:1234/{{url.ShortUrl}}>
+                <input type="text" class="forminput col-5" id="copyinput" value=http://localhost:1234/{{url.ShortUrl}}>
                 <button class="formbtn col-4" id="btn">Copy URL</button>
             </div>
-            <div class="box">
-                <div class="fullurl">
+            <div>
+                <div class="p-2">
                     <div>Full URL</div>
                     <div class="text-truncate" style="max-width: 600px;">
                         <a href="{{url.FullUrl}}" target="_blank">
@@ -35,36 +35,36 @@
                         </a>
                     </div>
                 </div>
-                <div class="clicks">
-                    <div>Total of clicks of Your shortened URL</div>
-                    <span>{{url.Clicks}}</span>
+                <div class="d-flex">
+                    <div class="p-2">Total of clicks of Your shortened URL</div>
+                    <span class="text-primary p-2">{{url.Clicks}}</span>
                 </div>
-                <button class="returnbtn">
-                    <a href="/">Shorten another URL</a>
+                <a class="p-2" href="/">
+                    <button type="button" class="btn btn-primary">Shorten another URL</button>
+                </a>
                 </button>
             </div>
         </div>
 
-        <div class="container2 hidden" id="cont2">
+        <div class="p-5 hidden" id="cont2">
             <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0" class="qr-code"
                 alt="">
-            <div class="box">
-                <div class="fullurl">
+            <div>
+                <div class="p-2">
                     <div>Full URL</div>
-                    <div class="ellipsis">
-                        <span>
-                            <a href="{{url.FullUrl}}">
-                                {{url.FullUrl}}
-                            </a>
-                        </span>
+                    <div class="text-truncate" style="max-width: 600px;">
+                        <a href="{{url.FullUrl}}" target="_blank">
+                            {{url.FullUrl}}
+                        </a>
                     </div>
                 </div>
-                <div class="clicks">
-                    <div>Total of clicks of Your shortened URL</div>
-                    <span>{{url.Clicks}}</span>
+                <div class="d-flex">
+                    <div class="p-2">Total of clicks of Your shortened URL</div>
+                    <span class="text-primary p-2">{{url.Clicks}}</span>
                 </div>
-                <button class="returnbtn">
-                    <a href="/">Shorten another URL</a>
+                <a class="p-2" href="/">
+                    <button type="button" class="btn btn-primary">Shorten another URL</button>
+                </a>
                 </button>
             </div>
         </div>
@@ -74,12 +74,12 @@
             © 2023 URL SHORTENER - Tool to shorten a long link
         </div>
         <div class="d-flex justify-content-center fs-5 p-4 row">
-            <div class="fw-bolder mx-2 col-md-2">ShortURL</div>
-            <div class="fw-bolder mx-2 col-md-2">URL Click Counter</div>
-            <div class="fw-bolder mx-2 col-md-2">Unshorten URL </div>
-            <div class="fw-bolder mx-2 col-md-2">Terms of Service </div>
-            <div class="fw-bolder mx-2 col-md-2">Privacy </div>
-            <div class="fw-bolder mx-2 col-md-1">Contact</div>
+            <div class="fw-bolder mx-2 col-md-1 h6">ShortURL</div>
+            <div class="fw-bolder mx-2 col-md-2 h6">URL Click Counter</div>
+            <div class="fw-bolder mx-2 col-md-2 h6">Unshorten URL </div>
+            <div class="fw-bolder mx-2 col-md-2 h6">Terms of Service </div>
+            <div class="fw-bolder mx-2 col-md-1 h6">Privacy </div>
+            <div class="fw-bolder mx-2 col-md-2 h6">Contact</div>
         </div>
     </div>
     <script src="../js/script.js"></script>
