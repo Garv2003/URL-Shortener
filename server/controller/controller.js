@@ -6,8 +6,7 @@ module.exports.posturl = (req, res) => {
   URL.find({ FullUrl: req.body.FullUrl }).then((result) => {
     if (result.length > 0) {
       res.redirect(`/shorturl/${result[0]._id}`);
-    }
-    else{
+    } else {
       let newurl = new URL({
         FullUrl: req.body.FullUrl,
         ShortUrl: uid(),
@@ -51,7 +50,13 @@ module.exports.redirecturl = async (req, res) => {
 };
 
 module.exports.gethome = async (req, res) => {
-  await URL.find({}).then((url) => {
-    res.render("home", { url: url });
-  });
+  try {
+    await URL.find()
+      .sort({ Clicks: -1 })
+      .then((result) => {
+        res.status(200).json({ urls: result });
+      });
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
 };

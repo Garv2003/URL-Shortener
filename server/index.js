@@ -8,13 +8,11 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 1234;
 
-app.set("view engine", "hbs");
-app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
-app.use("/", routes);
+app.use("/url", routes);
 
 mongoose.connect(process.env.MONGOOSE_URL).then(() => {
   app.listen(PORT, () => {

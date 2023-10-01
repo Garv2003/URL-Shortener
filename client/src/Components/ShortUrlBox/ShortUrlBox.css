@@ -1,0 +1,23 @@
+.qr-code {
+  width: 35%;
+  margin: auto;
+  display: block;
+}
+.hidden {
+  display: none;
+}
+.qrcode,
+.url {
+  height: 0px;
+  width: 100px;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.slider {
+  height: 60px;
+  width: 150px;
+  border-radius: 50px;
+}
