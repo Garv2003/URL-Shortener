@@ -1,75 +1,98 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ShortUrlBox.css";
 import { Link } from "react-router-dom";
 import UseUrl from "../Hooks/UseUrl";
 
 const ShortUrlBox = () => {
-  const { shorturl, clicks, url } = UseUrl();
+  const { shorturl, clicks, url, copy, htmlEncode } = UseUrl();
+  const [show, setShow] = useState(true);
+
   return (
     <div className="container-sm bg-dark text-light mt-5 mb-5">
       <div className="text-center shadow p-4">
-        <button className="url bg-primary slider text-light">URL</button>
-        <button className="bg-primary qrcode text-light">QR CODE</button>
+        <button
+          onClick={() => setShow(true)}
+          className={`shorturl text-light ${show ? "slider" : ""}`}
+        >
+          URL
+        </button>
+        <button
+          onClick={() => setShow(false)}
+          className={`qr_code text-light ${show ? "" : "slider"}`}
+        >
+          QR CODE
+        </button>
       </div>
-      <div className="p-5" id="cont1">
-        <div className="form_url">
-          <input
-            type="text"
-            className="forminput col-5"
-            id="copyinput"
-            value={shorturl}
+      {show ? (
+        <div className="p-5" id="cont1">
+          <div className="d-flex" style={{ marginLeft: "15%" }}>
+            <input
+              type="text"
+              className="forminput ps-4 border-0 col-6 p-2"
+              id="copyinput"
+              value={shorturl}
+              readOnly={true}
+            />
+            <button
+              className="formbtn border-0 col-4 bg-primary text-light "
+              id="btn"
+              onClick={copy}
+            >
+              Copy URL
+            </button>
+          </div>
+          <div>
+            <div className="p-2">
+              <div>Full URL</div>
+              <div className="text-truncate" style={{ maxWidth: "600px" }}>
+                <Link to={url} target="_blank">
+                  {url}
+                </Link>
+              </div>
+            </div>
+            <div className="d-flex">
+              <div className="p-2">Total of clicks of Your shortened URL</div>
+              <span className="text-primary p-2">{clicks}</span>
+            </div>
+            <a className="p-2" href="/">
+              <button type="button" className="btn btn-primary">
+                Shorten another URL
+              </button>
+            </a>
+          </div>
+        </div>
+      ) : (
+        <div className="p-5">
+          <img
+            src={
+              "https://chart.googleapis.com/chart?cht=qr&chl=" +
+              htmlEncode(shorturl) +
+              "&chs=160x160&chld=L|0"
+            }
+            className="qr-code"
+            alt=""
           />
-          <button className="formbtn col-4" id="btn">
-            Copy URL
-          </button>
-        </div>
-        <div>
-          <div className="p-2">
-            <div>Full URL</div>
-            <div className="text-truncate" style={{ maxWidth: "600px" }}>
-              <Link href="{{url.FullUrl}}" target="_blank">
-                {/* {{url.FullUrl}} */}
-              </Link>
+          <div>
+            <div className="p-2">
+              <div>Full URL</div>
+              <div className="text-truncate" style={{ maxWidth: "600px" }}>
+                <Link to={url} target="_blank">
+                  {url}
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className="d-flex">
-            <div className="p-2">Total of clicks of Your shortened URL</div>
-            <span className="text-primary p-2">{clicks}</span>
-          </div>
-          <a className="p-2" href="/">
-            <button type="button" className="btn btn-primary">
-              Shorten another URL
-            </button>
-          </a>
-        </div>
-      </div>
-
-      <div className="p-5 " id="cont2">
-        <img
-          src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0"
-          className="qr-code"
-          alt=""
-        />
-        <div>
-          <div className="p-2">
-            <div>Full URL</div>
-            <div className="text-truncate" style={{ maxWidth: "600px" }}>
-              <Link to={url} target="_blank">
-                {url}
-              </Link>
+            <div className="d-flex">
+              <div className="p-2">Total of clicks of Your shortened URL</div>
+              <span className="text-primary p-2">{clicks}</span>
             </div>
+            <a className="p-2" href="/">
+              <button type="button" className="btn btn-primary">
+                Shorten another URL
+              </button>
+            </a>
           </div>
-          <div className="d-flex">
-            <div className="p-2">Total of clicks of Your shortened URL</div>
-            <span className="text-primary p-2">{clicks}</span>
-          </div>
-          <a className="p-2" href="/">
-            <button type="button" className="btn btn-primary">
-              Shorten another URL
-            </button>
-          </a>
         </div>
-      </div>
+      )}
     </div>
   );
 };

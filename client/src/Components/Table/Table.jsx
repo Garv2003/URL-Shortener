@@ -23,6 +23,7 @@ const Table = ({ urls }) => {
                 <Link
                   className="text-primary text-decoration-none"
                   to={url.ShortUrl}
+                  target="_blank"
                 >
                   {url.ShortUrl}
                 </Link>

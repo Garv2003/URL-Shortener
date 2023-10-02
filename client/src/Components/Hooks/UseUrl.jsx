@@ -30,6 +30,22 @@ export default function UseUrl() {
     }
   };
 
+  const copy = () => {
+    var copyText = document.getElementById("copyinput");
+    navigator.clipboard.writeText(copyText.value);
+    var tooltip = document.getElementById("btn");
+    tooltip.innerHTML = "URL Copied";
+    setTimeout(() => {
+      tooltip.innerHTML = "Copy URL";
+    }, 5000);
+  };
+
+  function htmlEncode(value) {
+    const div = document.createElement("div");
+    div.appendChild(document.createTextNode(value));
+    return div.innerHTML;
+  }
+
   return {
     url,
     setUrl,
@@ -43,5 +59,7 @@ export default function UseUrl() {
     setUrls,
     clicks,
     setClicks,
+    copy,
+    htmlEncode,
   };
 }

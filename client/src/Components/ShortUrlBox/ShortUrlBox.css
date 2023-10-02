@@ -1,15 +1,17 @@
 .qr-code {
-  width: 35%;
+  width: 30%;
   margin: auto;
   display: block;
 }
+
 .hidden {
   display: none;
 }
-.qrcode,
-.url {
-  height: 0px;
-  width: 100px;
+
+.qr_code,
+.shorturl {
+  height: 60px;
+  width: 150px;
   font-size: 22px;
   border: none;
   outline: none;
@@ -20,4 +22,5 @@
   height: 60px;
   width: 150px;
   border-radius: 50px;
+  background-color: #0D6EFD;
 }
