@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./ShortUrlBox.css";
 import { Link } from "react-router-dom";
-import UseUrl from "../Hooks/UseUrl";
+import UseUrl from "../../Hooks/UseUrl";
 
-const ShortUrlBox = () => {
-  const { shorturl, clicks, url, copy, htmlEncode } = UseUrl();
+const CLIENT_URL = import.meta.env.VITE_APP_CLIENT_URL;
+
+const ShortUrlBox = ({ clicks, shorturl, url }) => {
+  const { copy, htmlEncode } = UseUrl();
   const [show, setShow] = useState(true);
 
   return (
@@ -30,7 +32,7 @@ const ShortUrlBox = () => {
               type="text"
               className="forminput ps-4 border-0 col-6 p-2"
               id="copyinput"
-              value={shorturl}
+              value={CLIENT_URL + shorturl}
               readOnly={true}
             />
             <button
@@ -62,17 +64,17 @@ const ShortUrlBox = () => {
           </div>
         </div>
       ) : (
-        <div className="p-5">
+        <div className="p-5 row">
           <img
             src={
               "https://chart.googleapis.com/chart?cht=qr&chl=" +
-              htmlEncode(shorturl) +
+              htmlEncode(CLIENT_URL + shorturl) +
               "&chs=160x160&chld=L|0"
             }
-            className="qr-code"
+            className="qr-code col-md-5"
             alt=""
           />
-          <div>
+          <div className="col-md-7 p-2 ">
             <div className="p-2">
               <div>Full URL</div>
               <div className="text-truncate" style={{ maxWidth: "600px" }}>

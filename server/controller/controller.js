@@ -7,7 +7,7 @@ module.exports.posturl = async (req, res) => {
     const existingURL = await URL.findOne({ FullUrl: req.body.FullUrl });
 
     if (existingURL) {
-      res.status(200).json({ existingURL });
+      res.status(200).json(existingURL);
     } else {
       const newURL = new URL({
         FullUrl: req.body.FullUrl,
