@@ -2,36 +2,26 @@ const URL = require("../models/url");
 const ShortUniqueId = require("short-unique-id");
 const uid = new ShortUniqueId({ length: 5 });
 
-module.exports.posturl = (req, res) => {
-  URL.find({ FullUrl: req.body.FullUrl }).then((result) => {
-    if (result.length > 0) {
-      res.redirect(`/shorturl/${result[0]._id}`);
+module.exports.posturl = async (req, res) => {
+  try {
+    const existingURL = await URL.findOne({ FullUrl: req.body.FullUrl });
+
+    if (existingURL) {
+      res.status(200).json({ existingURL });
     } else {
-      let newurl = new URL({
+      const newURL = new URL({
         FullUrl: req.body.FullUrl,
         ShortUrl: uid(),
         Clicks: 0,
       });
-      newurl
-        .save()
-        .then((result) => {
-          res.redirect(`/shorturl/${result._id}`);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  });
-};
 
-module.exports.geturl = (req, res) => {
-  URL.findById({ _id: req.params.id })
-    .then((result) => {
-      res.render("shorturl", { url: result });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      const savedURL = await newURL.save();
+      res.status(200).json({ savedURL });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 };
 
 module.exports.redirecturl = async (req, res) => {
@@ -42,7 +32,7 @@ module.exports.redirecturl = async (req, res) => {
         $inc: { Clicks: 1 },
       }
     ).then((result) => {
-      res.redirect(result.FullUrl);
+      res.status(200).json({ result });
     });
   } catch (error) {
     res.status(500).send("Internal Server Error");
