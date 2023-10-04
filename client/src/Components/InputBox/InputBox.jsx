@@ -1,7 +1,8 @@
 import React from "react";
 import "./InputBox.css";
 import axios from "axios";
-const SERVER_URL = import.meta.env.VITE_APP_SERVER_URL;
+import { isValidUrl } from "../../Hooks/UseUrl";
+const SERVER_URL = import.meta.env.VITE_APP_SERVER_API;
 const Body = ({
   setDisplay,
   setLoadingbox,
@@ -9,13 +10,18 @@ const Body = ({
   setShortUrl,
   setUrl,
   url,
+  setUrls,
 }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!url) return alert("Please enter a URL");
+    if (url.length === 0) return alert("Please enter a URL");
+    if (!isValidUrl(url)) {
+      setUrl("");
+      return alert("Please enter a valid URL");
+    }
     setLoadingbox(true);
     try {
-      const res = await axios.post(SERVER_URL + "url/addurl", {
+      const res = await axios.post(SERVER_URL + "/url/addurl", {
         FullUrl: url,
       });
       setUrl(res.data.FullUrl);

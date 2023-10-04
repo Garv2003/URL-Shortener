@@ -2,7 +2,7 @@ import React from "react";
 
 const Box = () => {
   return (
-    <div className="row mb-3">
+    <div className="row mb-3 mt-4">
       <div className="col">
         <div className="card bg-dark text-light">
           <div className="card-body text-center">

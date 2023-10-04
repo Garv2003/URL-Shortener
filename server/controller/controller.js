@@ -16,7 +16,7 @@ module.exports.posturl = async (req, res) => {
       });
 
       const savedURL = await newURL.save();
-      res.status(200).json({ savedURL });
+      res.status(200).json(savedURL);
     }
   } catch (err) {
     console.error(err);

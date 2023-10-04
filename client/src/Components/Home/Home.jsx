@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <div className="bg-dark bg-gradient d-flex flex-column min-vh-100">
-      <Navbar />
+      <Navbar setDisplay={setDisplay} setUrl={setUrl} />
       {loadingbox ? (
         <div className="text-center mt-5">
           <div className="text-light fs-2 p-2">
@@ -73,7 +73,13 @@ const Home = () => {
           </div>
         )
       ) : (
-        <ShortUrlBox shorturl={shorturl} clicks={clicks} url={url} />
+        <ShortUrlBox
+          shorturl={shorturl}
+          clicks={clicks}
+          url={url}
+          setUrl={setUrl}
+          setDisplay={setDisplay}
+        />
       )}
 
       <Footer />

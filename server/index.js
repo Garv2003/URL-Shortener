@@ -11,7 +11,9 @@ const app = express();
 const PORT = process.env.PORT || 1234;
 
 app.use(compression());
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));

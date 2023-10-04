@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./ShortUrlBox.css";
+import QRCode from "qrcode.react";
 import { Link } from "react-router-dom";
 import UseUrl from "../../Hooks/UseUrl";
 
 const CLIENT_URL = import.meta.env.VITE_APP_CLIENT_URL;
 
-const ShortUrlBox = ({ clicks, shorturl, url }) => {
-  const { copy, htmlEncode } = UseUrl();
+const ShortUrlBox = ({ clicks, shorturl, url, setDisplay, setUrl }) => {
+  const { copy, downloadQR } = UseUrl();
   const [show, setShow] = useState(true);
 
   return (
@@ -56,27 +57,39 @@ const ShortUrlBox = ({ clicks, shorturl, url }) => {
               <div className="p-2">Total of clicks of Your shortened URL</div>
               <span className="text-primary p-2">{clicks}</span>
             </div>
-            <a className="p-2" href="/">
-              <button type="button" className="btn btn-primary">
-                Shorten another URL
-              </button>
-            </a>
+            <button
+              type="button"
+              className="btn btn-primary m-2"
+              onClick={() => {
+                setDisplay(true);
+                setUrl("");
+              }}
+            >
+              Shorten another URL
+            </button>
           </div>
         </div>
       ) : (
         <div className="p-5 row">
-          <img
-            src={
-              "https://chart.googleapis.com/chart?cht=qr&chl=" +
-              htmlEncode(CLIENT_URL + shorturl) +
-              "&chs=160x160&chld=L|0"
-            }
-            className="qr-code col-md-5"
-            alt=""
-          />
+          <div className="qr-code col-md-5 row">
+            <QRCode
+              id="qrcode"
+              value={CLIENT_URL + shorturl}
+              style={{ margin: "auto", width: "80%", height: "100%" }}
+              level={"H"}
+              includeMargin={true}
+            />
+            <Link
+              onClick={() => downloadQR(shorturl)}
+              className="mt-1 text-center"
+            >
+              {" "}
+              Download QR{" "}
+            </Link>
+          </div>
           <div className="col-md-7 p-2 ">
             <div className="p-2">
-              <div>Full URL</div>
+              <div className="text-start">Full URL</div>
               <div className="text-truncate" style={{ maxWidth: "600px" }}>
                 <Link to={url} target="_blank">
                   {url}
@@ -87,11 +100,17 @@ const ShortUrlBox = ({ clicks, shorturl, url }) => {
               <div className="p-2">Total of clicks of Your shortened URL</div>
               <span className="text-primary p-2">{clicks}</span>
             </div>
-            <a className="p-2" href="/">
-              <button type="button" className="btn btn-primary">
-                Shorten another URL
-              </button>
-            </a>
+
+            <button
+              type="button"
+              className="btn btn-primary m-2"
+              onClick={() => {
+                setDisplay(true);
+                setUrl("");
+              }}
+            >
+              Shorten another URL
+            </button>
           </div>
         </div>
       )}

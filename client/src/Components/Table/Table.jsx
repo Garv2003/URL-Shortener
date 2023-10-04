@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+const CLIENT_URL = import.meta.env.VITE_APP_CLIENT_URL;
 const Table = ({ urls }) => {
   return (
     <>

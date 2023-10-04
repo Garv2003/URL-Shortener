@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import axios from "axios";
 
-const SERVER_URL = import.meta.env.VITE_APP_SERVER_URL;
+const SERVER_URL = import.meta.env.VITE_APP_SERVER_API;
 
 const Redirect = () => {
   const { id } = useParams();
@@ -14,7 +14,8 @@ const Redirect = () => {
         window.location.href = res.data.result.FullUrl;
       });
     } catch (err) {
-      console.log(err);
+      alert("Invalid URL");
+      window.location.href = "/";
     }
   }, []);
 

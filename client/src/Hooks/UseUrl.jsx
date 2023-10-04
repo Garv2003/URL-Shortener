@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
-const SERVER_URL = import.meta.env.VITE_APP_SERVER_URL;
+const SERVER_URL = import.meta.env.VITE_APP_SERVER_API;
 
 export default function UseUrl() {
   const [urls, setUrls] = useState([]);
@@ -27,11 +27,18 @@ export default function UseUrl() {
     }, 5000);
   };
 
-  function htmlEncode(value) {
-    const div = document.createElement("div");
-    div.appendChild(document.createTextNode(value));
-    return div.innerHTML;
-  }
+  const downloadQR = () => {
+    const canvas = document.getElementById("qrcode");
+    const pngUrl = canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    let downloadLink = document.createElement("a");
+    downloadLink.href = pngUrl;
+    downloadLink.download = "QrCode.png";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
 
   return {
     loading,
@@ -40,6 +47,15 @@ export default function UseUrl() {
     urls,
     setUrls,
     copy,
-    htmlEncode,
+    downloadQR,
   };
 }
+
+export const isValidUrl = (string) => {
+  try {
+    new URL(string);
+    return true;
+  } catch (err) {
+    return false;
+  }
+};
