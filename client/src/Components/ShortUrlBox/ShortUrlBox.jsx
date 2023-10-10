@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./ShortUrlBox.css";
 import QRCode from "qrcode.react";
 import { Link } from "react-router-dom";
-import UseUrl from "../../Hooks/UseUrl";
-
+import { UrlContext } from "../../Context/UrlContext";
 const CLIENT_URL = import.meta.env.VITE_APP_CLIENT_URL;
 
-const ShortUrlBox = ({ clicks, shorturl, url, setDisplay, setUrl }) => {
-  const { copy, downloadQR } = UseUrl();
+const ShortUrlBox = () => {
+  const { clicks, shorturl, url, setDisplay, setUrl, copy, downloadQR } =
+    useContext(UrlContext);
   const [show, setShow] = useState(true);
 
   return (

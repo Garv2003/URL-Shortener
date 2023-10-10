@@ -1,39 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./InputBox.css";
-import axios from "axios";
-import { isValidUrl } from "../../Hooks/UseUrl";
-const SERVER_URL = import.meta.env.VITE_APP_SERVER_API;
-const Body = ({
-  setDisplay,
-  setLoadingbox,
-  setClicks,
-  setShortUrl,
-  setUrl,
-  url,
-  setUrls,
-}) => {
+import { UrlContext } from "../../Context/UrlContext";
+
+const Body = () => {
+  const { setUrl, url, handleurl } = useContext(UrlContext);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (url.length === 0) return alert("Please enter a URL");
-    if (!isValidUrl(url)) {
-      setUrl("");
-      return alert("Please enter a valid URL");
-    }
-    setLoadingbox(true);
-    try {
-      const res = await axios.post(SERVER_URL + "/url/addurl", {
-        FullUrl: url,
-      });
-      setUrl(res.data.FullUrl);
-      setShortUrl(res.data.ShortUrl);
-      setClicks(res.data.Clicks);
-      setDisplay(false);
-      setLoadingbox(false);
-    } catch (err) {
-      setDisplay(true);
-      setLoadingbox(false);
-      alert("Please enter a valid URL");
-    }
+    handleurl();
   };
 
   return (

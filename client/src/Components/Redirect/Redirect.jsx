@@ -1,22 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
-import axios from "axios";
-
-const SERVER_URL = import.meta.env.VITE_APP_SERVER_API;
-
+import { UrlContext } from "../../Context/UrlContext";
 const Redirect = () => {
+  const { redirect } = useContext(UrlContext);
   const { id } = useParams();
 
   useEffect(() => {
-    try {
-      axios.get(SERVER_URL + `/url/shorturl/${id}`).then((res) => {
-        window.location.href = res.data.result.FullUrl;
-      });
-    } catch (err) {
-      alert("Invalid URL");
-      window.location.href = "/";
-    }
+    redirect(id);
   }, []);
 
   return (

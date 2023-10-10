@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
-const Navbar = ({ setDisplay, setUrl }) => {
+import React, { useContext } from "react";
+import { UrlContext } from "../../Context/UrlContext";
+const Navbar = () => {
+  const { setUrl, setDisplay } = useContext(UrlContext);
   return (
     <>
       <h1 className="container-fluid text-center bg-dark p-4 shadow-lg">
