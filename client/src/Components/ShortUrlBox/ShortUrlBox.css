@@ -22,9 +22,8 @@
   height: 60px;
   width: 40%;
   border-radius: 50px;
-  background-color: #0D6EFD;
+  background-color: #0d6efd;
 }
-
 
 @media screen and (max-width: 768px) {
   .qr-code {
@@ -32,18 +31,6 @@
   }
   .qr_code,
   .shorturl {
-    height: 60px;
-    width: 40%;
     font-size: 1rem;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  .slider {
-    height: 60px;
-    width: 40%;
-    border-radius: 50px;
-    background-color: #0D6EFD;
   }
 }

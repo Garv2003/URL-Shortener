@@ -8,7 +8,7 @@ const routes = require("./routes/routes");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 1234;
+const PORT = process.env.PORT;
 
 app.use(compression());
 app.use(cors({
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
-app.use("/url", routes);
+app.use("/", routes);
 
 mongoose.connect(process.env.MONGOOSE_URL).then(() => {
   app.listen(PORT, () => {

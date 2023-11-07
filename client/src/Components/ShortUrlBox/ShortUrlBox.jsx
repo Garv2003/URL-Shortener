@@ -10,9 +10,64 @@ const ShortUrlBox = () => {
     useContext(UrlContext);
   const [show, setShow] = useState(true);
 
+  function resolveDataUrl() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const img = document.querySelector("#qr-code img");
+        if (img.currentSrc) {
+          resolve(img.currentSrc);
+          return;
+        }
+        const canvas = document.querySelector("canvas");
+        resolve(canvas.toDataURL());
+      }, 50);
+    });
+  }
+
+  async function handleShare() {
+    setTimeout(async () => {
+      try {
+        const base64url = await resolveDataUrl();
+        const blob = await (await fetch(base64url)).blob();
+        const file = new File([blob], "QRCode.png", {
+          type: blob.type,
+        });
+        await navigator.share({
+          files: [file],
+          title: text,
+        });
+      } catch (error) {
+        alert("Your browser doesn't support sharing.");
+      }
+    }, 100);
+  }
+  async function shareqrcode() {
+    const canvas = document.getElementById("qrcode");
+    const pngUrl = canvas.toDataURL("image/png");
+    const blob = await (await fetch(pngUrl)).blob();
+
+    const filesArray = [
+      new File([blob], "qrcode.png", {
+        type: blob.type,
+        lastModified: new Date().getTime(),
+      }),
+    ];
+
+    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+      navigator.share({
+        text: "some_text",
+        files: filesArray,
+        title: "Qr code",
+        url: CLIENT_URL,
+      });
+    } else {
+      console.log("Your system doesn't support sharing files.");
+    }
+  }
+
   return (
-    <div className="container-sm bg-dark text-light mt-5 mb-5">
-      <div className="text-center shadow p-4">
+    <div className="container-sm bg-dark text-light mt-5 mb-5 rounded-4">
+      <div className="text-center shadow p-4 rounded-5">
         <button
           onClick={() => setShow(true)}
           className={`shorturl text-light ${show ? "slider" : ""}`}
@@ -27,17 +82,17 @@ const ShortUrlBox = () => {
         </button>
       </div>
       {show ? (
-        <div className="p-5" id="cont1">
-          <div className="d-flex" style={{ marginLeft: "15%" }}>
+        <div className="p-4" id="cont1">
+          <div className="form">
             <input
               type="text"
-              className="forminput ps-4 border-0 col-6 p-2"
+              className="forminput border-0  ps-3 mt-3 text-center"
               id="copyinput"
               value={CLIENT_URL + shorturl}
               readOnly={true}
             />
             <button
-              className="formbtn border-0 col-4 bg-primary text-light "
+              className="formbtn border-0 bg-primary text-light mt-3"
               id="btn"
               onClick={copy}
             >
@@ -75,17 +130,27 @@ const ShortUrlBox = () => {
             <QRCode
               id="qrcode"
               value={CLIENT_URL + shorturl}
-              style={{ margin: "auto", width: "80%", height: "100%" }}
+              style={{ margin: "auto", width: "85%", height: "100%" }}
               level={"H"}
               includeMargin={true}
             />
-            <Link
-              onClick={() => downloadQR(shorturl)}
-              className="mt-1 text-center"
-            >
-              {" "}
-              Download QR{" "}
-            </Link>
+            <div className="d-flex justify-content-center mt-2">
+              <Link
+                onClick={() => downloadQR(shorturl)}
+                className="btn btn-primary "
+                style={({ textDecoration: "none" }, { fontSize: "1rem" })}
+              >
+                {" "}
+                Download
+              </Link>
+              <button
+                onClick={() => shareqrcode()}
+                className="btn btn-primary ms-2"
+              >
+                {" "}
+                Share
+              </button>
+            </div>
           </div>
           <div className="col-md-7 p-2 ">
             <div className="p-2">

@@ -14,7 +14,6 @@ module.exports.posturl = async (req, res) => {
         ShortUrl: uid(),
         Clicks: 0,
       });
-
       const savedURL = await newURL.save();
       res.status(200).json(savedURL);
     }
@@ -46,6 +45,14 @@ module.exports.gethome = async (req, res) => {
       .then((result) => {
         res.status(200).json({ urls: result });
       });
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+};
+
+module.exports.fortest = async (req, res) => {
+  try {
+    res.status(200).send("for testing purpose");
   } catch (error) {
     res.status(500).send("Internal Server Error");
   }
