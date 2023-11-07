@@ -57,3 +57,13 @@ module.exports.fortest = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
+
+module.exports.geturl = async (req, res) => {
+  try {
+    await URL.findOne({ ShortUrl: req.params.id }).then((result) => {
+      res.status(200).json(result);
+    });
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+};
