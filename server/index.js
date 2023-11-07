@@ -8,7 +8,7 @@ const routes = require("./routes/routes");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 1234;
 
 app.use(compression());
 app.use(cors({
