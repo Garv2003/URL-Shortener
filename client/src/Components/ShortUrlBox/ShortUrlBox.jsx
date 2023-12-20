@@ -13,7 +13,7 @@ const ShortUrlBox = () => {
   function resolveDataUrl() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const img = document.querySelector("#qr-code img");
+        const img = document.querySelector("#qrcode");
         if (img.currentSrc) {
           resolve(img.currentSrc);
           return;
@@ -34,35 +34,16 @@ const ShortUrlBox = () => {
         });
         await navigator.share({
           files: [file],
-          title: text,
+          title: "QR Code for " + url,
+          text: `Scan this QR Code to visit ${url} and Your Shortened Url is ${
+            CLIENT_URL + shorturl
+          } Shorten your URL at ${CLIENT_URL}`,
+          url: CLIENT_URL + shorturl,
         });
       } catch (error) {
         alert("Your browser doesn't support sharing.");
       }
     }, 100);
-  }
-  async function shareqrcode() {
-    const canvas = document.getElementById("qrcode");
-    const pngUrl = canvas.toDataURL("image/png");
-    const blob = await (await fetch(pngUrl)).blob();
-
-    const filesArray = [
-      new File([blob], "qrcode.png", {
-        type: blob.type,
-        lastModified: new Date().getTime(),
-      }),
-    ];
-
-    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
-      navigator.share({
-        text: "some_text",
-        files: filesArray,
-        title: "Qr code",
-        url: CLIENT_URL,
-      });
-    } else {
-      console.log("Your system doesn't support sharing files.");
-    }
   }
 
   return (
@@ -137,15 +118,16 @@ const ShortUrlBox = () => {
             <div className="d-flex justify-content-center mt-2">
               <Link
                 onClick={() => downloadQR(shorturl)}
-                className="btn btn-primary "
-                style={({ textDecoration: "none" }, { fontSize: "1rem" })}
+                className="btn btn-primary"
+                style={({ textDecoration: "none" }, { fontSize: "0.8rem" })}
               >
                 {" "}
                 Download
               </Link>
               <button
-                onClick={() => shareqrcode()}
-                className="btn btn-primary ms-2"
+                onClick={() => handleShare()}
+                className="btn btn-primary ms-2 "
+                style={{ fontSize: "0.8rem" }}
               >
                 {" "}
                 Share
