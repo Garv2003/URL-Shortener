@@ -47,6 +47,7 @@ export const UrlProvider = ({ children }) => {
       return alert("Please enter a valid URL");
     }
     setLoadingbox(true);
+    url.trim();
     try {
       const res = await axios.post(SERVER_URL + "/url/addurl", {
         FullUrl: url,

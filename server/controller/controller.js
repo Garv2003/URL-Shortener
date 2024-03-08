@@ -4,7 +4,11 @@ const uid = new ShortUniqueId({ length: 5 });
 
 module.exports.posturl = async (req, res) => {
   try {
-    const existingURL = await URL.findOne({ FullUrl: req.body.FullUrl });
+    if (!req.body.FullUrl) {
+      return res.status(400).json({ error: "Please enter a URL" });
+    }
+    const FullUrl = req.body.FullUrl.trim();
+    const existingURL = await URL.findOne({ FullUrl: FullUrl });
 
     if (existingURL) {
       res.status(200).json(existingURL);
@@ -40,6 +44,10 @@ module.exports.redirecturl = async (req, res) => {
 
 module.exports.gethome = async (req, res) => {
   try {
+    const date = new Date();
+    date.setFullYear(date.getFullYear() - 2);
+    await URL.deleteMany({ createdAt: { $lt: date } });
+
     await URL.find()
       .sort({ Clicks: -1 })
       .then((result) => {
@@ -56,4 +64,20 @@ module.exports.fortest = async (req, res) => {
   } catch (error) {
     res.status(500).send("Internal Server Error");
   }
+};
+
+let count = 0;
+
+module.exports.customurl = async (req, res) => {
+  const { q } = req.query;
+  console.log(q);
+  count++;
+  console.log(count);
+  res.status(200).json(uid(q));
+  // const existingURL = await URL.findOne({ ShortUrl: q });
+  // if (existingURL) {
+  //   res.status(200).json(existingURL);
+  // } else {
+  //   res.status(404).json({ error: "URL not found" });
+  // }
 };
