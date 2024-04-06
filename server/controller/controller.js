@@ -65,19 +65,3 @@ module.exports.fortest = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
-
-let count = 0;
-
-module.exports.customurl = async (req, res) => {
-  const { q } = req.query;
-  console.log(q);
-  count++;
-  console.log(count);
-  res.status(200).json(uid(q));
-  // const existingURL = await URL.findOne({ ShortUrl: q });
-  // if (existingURL) {
-  //   res.status(200).json(existingURL);
-  // } else {
-  //   res.status(404).json({ error: "URL not found" });
-  // }
-};
